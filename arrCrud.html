@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <script>
+            function displaydetails()
+            {
+                displaylist();
+            }
+            arr = ["Anupam","Anurag","Pranav"]
+            function displaylist()
+            {
+                var str="<ul>"
+            for(var i=0;i<arr.length;i++)
+            {
+                str="<li>" + arr[i] + "</li>"
+                document.getElementById("mydiv").innerHTML+=str
+            }
+            str+="</ul>"
+            console.log(str);
+            }
+            function addName()
+            {
+                var nm=document.getElementById("nm").value;
+                arr.push(nm);
+                displaylist()
+                document.getElementById("nm").value=""
+                document.getElementById("nm").focus
+            }
+            function deleteName()
+            {
+                var nm=document.getElementById("nm").value
+
+                var pos=arr.findIndex(name=>name===nm)
+                if(pos !==-1)
+                {
+                    arr.splice(pos,1)
+                }
+                displaylist()
+                //clear the data
+                document.getElementById("nm").value=""
+                document.getElementById("nm").focus()
+
+            }
+            function update()
+            {
+               var nm= document.getElementById("nm").value=""
+               var pos=arr.findIndex(name=>name==nm)
+               //overwrite th values
+               arr[pos]=nm
+               //to delete and replace
+               arr.splice(pos,1,nm,"abc","def","ghi")
+
+            }
+        </script>
+    </head>
+    <body onload="displaydetails()">
+        <label>Name : </label> <input type="text" id="nm" >
+        <button type="submit" id="btn1" name="btn" value="add" onclick="addName()" >Add Name</button>
+        <button type="submit" id="btn2" name="btn" value="delete" onclick="deleteName()">Delete Name</button>
+        <button type="submit" id="btn3" name="btn" value="update" onclick="updateName()">Update Name</button>
+        <div id="mydiv"> </div>
+   
+    </body>
+       
+</html>
