@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script>
+            function validatepassword()
+            {
+                var pass=document.getElementById("pass").value;
+                var cpass=document.getElementById("cpass").value;
+                if(pass===cpass)
+                {
+                    document.getElementById("errpass").innerHTML="";
+                    return true;
+
+                }
+                document.getElementById("errpass").innerHTML="Password and UserId does not match"
+            }
+            function validateuser()
+            {
+                flag=validatepassword();
+                return flag;
+            }
+        </script>
+    </head>
+    <body>
+        <table>
+            <thead></thead>
+            <tbody>
+                <form action="validateuser" method="get" onsubmit="return validateuser()">
+                <tr>
+                    <td>
+                        <label for="nm">User Name :</label>
+                        <input type="text" id="nm" placeholder="enter username" required autofocus minlength="3" pattern="[A-Za-z]+[#@][A-Za-z0-9]+"> 
+                        <td id="errname"></td><br>
+                        <label for="nm1">Password :</label>
+                        <input type="text" id="pass" placeholder="enter password" > <td id="errpass"></td><br>
+                        <label for="nm1">Conform Password :</label>
+                        <input type="text" id="cpass" placeholder="enter conform pssword"> <br>
+
+                    </td>
+                </tr>
+                </form>
+            </tbody>
+        </table>
+    </body>
+</html>
