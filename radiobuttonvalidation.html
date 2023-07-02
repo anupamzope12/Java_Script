@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script>
+            var name;
+            var data;
+            function showdata()
+            {
+                flag1=validatename();
+                flag2=validatedegree();
+                if(flag1 && flag2)
+                {
+                    var str="name" + name + "degree" + data
+                    document.getElementById().innerHTML=str
+                }
+                document.getElementById("eer")
+            }
+
+            function validatename()
+            {
+                 name=document.getElementById("tx").value
+
+                if(name==="" || !isNaN(name))
+                {
+                    document.getElementById("err").innerHTML="plse select valid name";
+                    return false
+                }
+                else{
+                    document.getElementById("err").innerHTML=""
+                    return true
+                }
+            }
+            function validatedegree()
+            {
+                var arr=document.getElementsByName("degree")
+                for(var i=0 ; i<arr.length ;i++)
+                {
+                    if(arr[i].checked)
+                    {
+                    data=arr[i].value
+                    document.getElementById("err").innerHTML=data
+                    return true
+                    }
+                    else{
+                        document.getElementById("err").innerHTML="pls select one degree"
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <label for="tx">Name :</label><input type="text" id="tx" name="tx" class="tx" > <br>
+        <input type="radio" id="1" name="degree" class="be" value="be" ><label for="be">B.E.</label> <br>
+        <input type="radio" id="2" name="degree" class="me" value="me" ><label for="be">M.E.</label> <br>
+        <input type="radio" id="3" name="degree" class="pharmacy" value="pharmacy" ><label for="pharmacy">Pharmacy</label> <br>
+        <input type="radio" id="4" name="degree" class="mtech" value="mtech" ><label for="mtech">Mtech</label> <br>
+        <button type="submit" id="btn" name="btn" class="btn" value="btn" onclick="showdata()">Show Data</button>
+        <span id="err"></span>
+        <div id="mydiv"></div>
+    </body>
+</html>
